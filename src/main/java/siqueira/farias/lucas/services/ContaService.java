@@ -2,7 +2,6 @@ package siqueira.farias.lucas.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.ForbiddenException;
 import jakarta.ws.rs.NotFoundException;
 import siqueira.farias.lucas.converters.ContaConverter;
@@ -51,10 +50,5 @@ public class ContaService {
         } else {
             throw new ForbiddenException(MessageUtil.getMessage("conta.saldoInsuficiente"));
         }
-    }
-
-    public Float getSaldoByNumeroConta(Long numeroConta) {
-        ContaEntity conta = this.findByNumeroConta(numeroConta);
-        return conta.getSaldo();
     }
 }

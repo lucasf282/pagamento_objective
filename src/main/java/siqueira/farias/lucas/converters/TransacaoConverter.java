@@ -13,12 +13,4 @@ public class TransacaoConverter {
         entity.setValor(dto.getValor());
         return entity;
     }
-
-    public static TransacaoDTO toDTO(TransacaoEntity entity) {
-        TransacaoDTO dto = new TransacaoDTO();
-        dto.setNumeroConta(entity.getNumeroConta());
-        dto.setFormaPagamento(FormaPagamentoEnum.getBySigla(entity.getFormaPagamento()));
-        dto.setValor(entity.getValor());
-        return dto;
-    }
 }

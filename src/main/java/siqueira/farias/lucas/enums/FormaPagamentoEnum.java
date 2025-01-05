@@ -2,7 +2,6 @@ package siqueira.farias.lucas.enums;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.ws.rs.NotFoundException;
-import org.jboss.resteasy.reactive.common.providers.serialisers.MessageReaderUtil;
 import siqueira.farias.lucas.utils.MessageUtil;
 
 import java.util.Arrays;

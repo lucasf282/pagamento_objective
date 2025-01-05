@@ -1,7 +1,6 @@
 package siqueira.farias.lucas.entities;
 
 import jakarta.persistence.*;
-import siqueira.farias.lucas.enums.FormaPagamentoEnum;
 
 @Entity
 public class TransacaoEntity {
