@@ -3,6 +3,7 @@ package siqueira.farias.lucas.resources;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -26,13 +27,13 @@ public class ContaResource {
 
     @GET
     public Response buscar(
-            @NotBlank(message = "{conta.numeroConta.notBlank}")
+            @NotNull(message = "{conta.numeroConta.notNull}")
             @Positive(message = "{conta.numeroConta.positive}")
             @QueryParam("numero_conta")
             Long numeroConta
     ) {
-        //TODO: implementar serviço de busca da conta
-        return Response.ok().build();
+        ContaDTO conta = contaService.buscar(numeroConta);
+        return Response.ok(conta).build();
     }
 }
 
