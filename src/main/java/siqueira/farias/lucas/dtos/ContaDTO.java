@@ -1,5 +1,6 @@
 package siqueira.farias.lucas.dtos;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -15,6 +16,7 @@ public class ContaDTO {
     @PositiveOrZero(message = "{conta.saldo.positiveOrZero}")
     private Float saldo;
 
+    @JsonProperty("numero_conta")
     public Long getNumeroConta() {
         return numeroConta;
     }
@@ -31,10 +33,4 @@ public class ContaDTO {
         this.saldo = saldo;
     }
 
-    public ContaEntity toEntity() {
-        ContaEntity entity = new ContaEntity();
-        entity.setNumeroConta(numeroConta);
-        entity.setSaldo(saldo);
-        return entity;
-    }
 }
