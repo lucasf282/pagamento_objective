@@ -4,7 +4,7 @@ import java.util.ResourceBundle;
 
 public class MessageUtil {
 
-    private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle("messages");
+    private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle("ValidationMessages");
 
     private MessageUtil() {
         // Private constructor to prevent instantiation
