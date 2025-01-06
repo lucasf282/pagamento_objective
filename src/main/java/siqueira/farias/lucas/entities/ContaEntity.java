@@ -14,7 +14,7 @@ public class ContaEntity {
     private Long id;
     @Column(name = "numero_conta")
     private Long numeroConta;
-    private  Float saldo;
+    private  float saldo;
 
     public Long getNumeroConta() {
         return numeroConta;
@@ -24,11 +24,11 @@ public class ContaEntity {
         this.numeroConta = numeroConta;
     }
 
-    public Float getSaldo() {
+    public float getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Float saldo) {
+    public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
 

@@ -7,9 +7,9 @@ import siqueira.farias.lucas.utils.MessageUtil;
 import java.util.Arrays;
 
 public enum FormaPagamentoEnum {
-    P("P", "PIX"),
-    C("C", "Cartão de Crédito"),
-    D("D", "Cartão de Débito");
+    PIX("P", "PIX"),
+    CARTAO_CREDITO("C", "Cartão de Crédito"),
+    CARTAO_DEBITO("D", "Cartão de Débito");
 
     private String descricao;
     private String sigla;

@@ -1,9 +1,12 @@
 package siqueira.farias.lucas.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import siqueira.farias.lucas.enums.FormaPagamentoEnum;
+import siqueira.farias.lucas.factories.PagamentoFactory;
+import siqueira.farias.lucas.strategies.pagamentos.PagamentoStrategy;
 
 public class TransacaoDTO {
 
@@ -14,11 +17,14 @@ public class TransacaoDTO {
 
     @NotNull(message = "{transacao.valor.notNull}")
     @Positive(message = "{transacao.valor.positive}")
-    private Float valor;
+    private float valor;
 
     @NotNull(message = "{transacao.formaPagamento.notNull}")
     @JsonProperty("forma_pagamento")
     private FormaPagamentoEnum formaPagamento;
+
+    @JsonIgnore
+    private PagamentoStrategy pagamentoStrategy;
 
     public Long getNumeroConta() {
         return numeroConta;
@@ -28,11 +34,11 @@ public class TransacaoDTO {
         this.numeroConta = numeroConta;
     }
 
-    public Float getValor() {
+    public float getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(float valor) {
         this.valor = valor;
     }
 
@@ -42,5 +48,10 @@ public class TransacaoDTO {
 
     public void setFormaPagamento(FormaPagamentoEnum formaPagamento) {
         this.formaPagamento = formaPagamento;
+        this.pagamentoStrategy = PagamentoFactory.getPagamentoStrategy(this.formaPagamento);
+    }
+
+    public PagamentoStrategy getPagamentoStrategy() {
+        return pagamentoStrategy;
     }
 }

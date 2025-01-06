@@ -13,7 +13,7 @@ public class ContaDTO {
 
     @NotNull(message = "{conta.saldo.notNull}")
     @PositiveOrZero(message = "{conta.saldo.positiveOrZero}")
-    private Float saldo;
+    private float saldo;
 
     @JsonProperty("numero_conta")
     public Long getNumeroConta() {
@@ -24,11 +24,11 @@ public class ContaDTO {
         this.numeroConta = numeroConta;
     }
 
-    public Float getSaldo() {
+    public float getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Float saldo) {
+    public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
 

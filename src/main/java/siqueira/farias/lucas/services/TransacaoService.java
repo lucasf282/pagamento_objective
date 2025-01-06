@@ -18,7 +18,9 @@ public class TransacaoService {
 
     @Transactional
     public ContaDTO pagar(TransacaoDTO transacaoDTO) {
-            ContaDTO conta = contaService.retirarSaldo(transacaoDTO.getNumeroConta(), transacaoDTO.getValor());
+            float taxa = transacaoDTO.getPagamentoStrategy().calcularTaxa(transacaoDTO.getValor());
+            float valorFinal = transacaoDTO.getValor()+taxa;
+            ContaDTO conta = contaService.retirarSaldo(transacaoDTO.getNumeroConta(), valorFinal);
             repository.persist(TransacaoConverter.toEntity(transacaoDTO));
             return conta;
     }

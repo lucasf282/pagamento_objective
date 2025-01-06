@@ -41,7 +41,7 @@ public class ContaService {
         }
     }
 
-    public ContaDTO retirarSaldo(Long numeroConta, Float valor) {
+    public ContaDTO retirarSaldo(Long numeroConta, float valor) {
         ContaEntity conta = this.findByNumeroConta(numeroConta);
         if (valor <= conta.getSaldo()) {
             conta.setSaldo(conta.getSaldo() - valor);

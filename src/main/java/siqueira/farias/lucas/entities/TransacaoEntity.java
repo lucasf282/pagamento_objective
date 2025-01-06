@@ -10,7 +10,7 @@ public class TransacaoEntity {
     private Long id;
     @Column(name = "numero_conta")
     private Long numeroConta;
-    private  Float valor;
+    private  float valor;
     @Column(name = "forma_pagamento")
     private String formaPagamento;
 
@@ -22,11 +22,11 @@ public class TransacaoEntity {
         this.numeroConta = numeroConta;
     }
 
-    public Float getValor() {
+    public float getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(float valor) {
         this.valor = valor;
     }
 
